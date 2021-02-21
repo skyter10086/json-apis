@@ -14,7 +14,7 @@ use DBIx::Connector;
 
 app->config(hypnotoad => 
             {
-                listen  => ['http://*:808'],
+                listen  => ['http://*:8080'],
                 workers => 10});
 
 
