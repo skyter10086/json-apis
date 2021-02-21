@@ -115,7 +115,7 @@ app->start;
 
 __END__
 
-
+./script/my_app prefork -m production -w 10 -c 1
 
 
 
