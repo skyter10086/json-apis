@@ -5,7 +5,7 @@ use DBIx::Connector;
 
     my $dsn = 'dbi:Pg:dbname=postgres';
     my $usr = 'postgres';
-    my $pwd = '';
+    my $pwd = 'Root123456';
     my $conn = DBIx::Connector->new($dsn, $usr, $pwd,{RaiseError=>1,AutoCommit=>1}) || 
               die "Can not connect the DB!";
     #$conn->mode('fixup');
@@ -104,8 +104,9 @@ get '/person/id/:id' => sub ($c) {
     $c->render(json=>$kv);
 };
 
-get '/person/name/:name' => sub ($c) {
-    my $name = $c->stash('name');
+post '/person/name' => sub ($c) {
+    my $name = $c->req->json->{'name'};
+    #print "name is $name.\n";
     my $kv = person_name($name);
     $c->render(json=>$kv);
 };
